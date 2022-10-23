@@ -1,38 +1,232 @@
-.App {
-  text-align: center;
-}
+/*font-family: 'Lora', serif; - TEXT
+font-family: 'Open Sans', sans-serif; - HEADING*/
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-color: #e8e5de;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+::selection {
+  background:  #FFB344; /* Цвет фона */
+  color: #FFF8E5; /* Цвет текста */
 }
+h1{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 50px;
+  margin-bottom: 3px;
+}
+.container-top p{
+  font-family: 'Lora', serif;
+  margin-top: 15px;
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+}
+.container-top{
   display: flex;
+  justify-content: center;
   flex-direction: column;
   align-items: center;
+}
+
+.container-form{
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 50px;
+  align-items: stretch;
+}
+input{
+  padding: 8px;
+  width: 500px;
+  font-size: 18px;
+  outline: none;
+  font-family: 'Lora', serif;
+  border: 1px solid rgba(128, 128, 128, 0.605);
+}
+form{
+  display: flex;
+}
+.form-btn{
+  padding: 10px;
+  border: none;
+  background-color: #00A19D;
+  text-align: center;
+  font-size: 20px;
+}
+.form-btn:hover{
+  cursor: pointer;
+  background-color: #048784;
+  transition: all ease-in .5s;
 }
 
-.App-link {
-  color: #61dafb;
+.recipe-div{
+  background-color: #f3f3f3;
+  -webkit-box-shadow: 4px 2px 15px 0px rgba(47, 47, 47, 0.2);
+  -moz-box-shadow: 4px 2px 15px 0px rgba(47, 47, 47, 0.2);
+  box-shadow: 4px 2px 15px 0px rgba(47, 47, 47, 0.2);;
+  margin: 10px;
+  text-align: center;
+  width: 400px;
+  padding: 5px;
+  font-family: 'Lora', serif;
+}
+.recipes-div{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.ingredients-ul{
+  list-style-type: none;
+  font-family: 'Lora', serif;
+}
+.ingredients-ul li{
+  padding: 5px;
+}
+
+.view-btn{
+  margin: 5px;
+  background-color: #00A19D;
+  border: none;
+  padding: 7px 15px;
+  color: #f3f3f3;
+  font-size: 19px;
+  margin-bottom: 10px;
+}
+.view-btn:hover{
+  cursor: pointer;
+  background-color: #048784;
+  transition: all ease-in .5s;
+}
+.rec-img{
+  width: 300px;
+  text-align: center;
+  
+}
+.p-ing{
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2{
+  font-size: 20px;
+  
+}
+
+.p-text{
+  word-spacing: 20px;
+}
+.p-text b{
+  word-spacing: normal;
+}
+hr{
+  margin-top: 150px;
+}
+footer{
+  margin-top: 10px;
+}
+
+footer a{
+  color: #FFB344;
+}
+
+
+@media all and (max-width: 872px){
+  .rec-img {
+    width: 220px;
   }
-  to {
-    transform: rotate(360deg);
+  .view-btn {
+    margin: 0;
+    padding: 7px 12px;
+    color: #f3f3f3;
+    font-size: 17px;
+    margin-bottom: 10px;
+  }
+  .recipe-div {
+    margin: 10px;
+    width: 330px;
+    padding: 5px;
+  }
+}
+
+@media all and (max-width: 716px){
+  .recipe-div {
+    margin: 10px;
+    width: 300px;
+    padding: 5px;
+  }
+  h2{
+    margin: 8px;
+  }
+  .rec-img{
+    width: 280px;
+  }
+}
+
+@media all and (max-width: 680px){
+  h1{
+    font-size: 40px;
+  }
+  .container-top p{
+    font-size: 16px;
+    width: 400px;
+  }
+  input {
+    padding: 8px;
+    width: 400px;
+    font-size: 18px;
+  }
+  .recipe-div {
+    margin: 7px;
+    width: 240px;
+    padding: 5px;
+  }
+  .rec-img{
+    width: 210px;
+  }
+  .recipe-div p{
+    margin: 5px;
+  }
+}
+
+@media all and (max-width: 548px){
+  input {
+    padding: 8px;
+    width: 310px;
+    font-size: 18px;
+  }
+  .recipe-div {
+    margin: 7px;
+    width: 210px;
+    padding: 5px;
+  }
+  .rec-img{
+    width: 180px;
+  }
+  h2{
+    font-size: 17px;
+  }
+  .swal2-popup {
+    width: 18.750em;
+    max-width: 100%;
+    padding: 0 0 1.25em;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  .swal2-html-container {
+    z-index: 1;
+    justify-content: center;
+    margin: .5em .6em 0.3em;
+    padding: 0;
+    overflow: auto;
+    color: inherit;
+    font-size: 1.125em;
+    font-weight: 400;
+    line-height: normal;
+    text-align: center;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+  .swal2-container.swal2-center>.swal2-popup {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: center;
+    width: 28.750em;
   }
 }
