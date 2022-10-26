@@ -50,7 +50,7 @@ function App() {
 
       <div className='recipes-div'>
         {myRecipes.map((element, index)  =>(
-          <div  key={index}>
+         
             <Recipes
             label={element.recipe.label}
             image={element.recipe.image}
@@ -61,7 +61,7 @@ function App() {
             totalTime={element.recipe.totalTime}
             ingredientLines={element.recipe.ingredientLines}
           />
-          </div>
+        
         ))}
       </div> 
       <hr/>
