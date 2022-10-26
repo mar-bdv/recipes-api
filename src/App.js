@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import Recipes from './Recipes';
 import icon from './icon-search.png'
 
-
 function App() {
   const MY_ID = "35bff195"
   const MY_KEY = "a64355e8f24aee1c95e8c3ab2b1b72ff"
@@ -11,7 +10,6 @@ function App() {
   const [mySearch, setMySearch] = useState("");
   const [myRecipes, setMyRecipes] = useState([]);
   const [wordSubmitted, setWordSubmitted] = useState("pizza")
-  
 
   useEffect(() =>{
     const getRecipe = async () =>{
@@ -30,9 +28,9 @@ function App() {
     setWordSubmitted(mySearch)
     e.preventDefault()
   }
-  
-
-
+  // if(wordSubmitted !== myRecipes){
+  //   console.log("По вашему запросу ничего не найдено")
+  // }
 
   return (
     <div>
@@ -47,10 +45,9 @@ function App() {
         </form>
       </div>
 
-
       <div className='recipes-div'>
-        {myRecipes.map((element, index)  =>(
-         
+        {/* {wordSubmitted !== myRecipes ? console.log('ничего не найдено') : console.log('найдено!')} */}
+        {myRecipes.map((element, index) =>(
             <Recipes key={index}
             label={element.recipe.label}
             image={element.recipe.image}
@@ -61,7 +58,6 @@ function App() {
             totalTime={element.recipe.totalTime}
             ingredientLines={element.recipe.ingredientLines}
           />
-        
         ))}
       </div> 
       <hr/>
@@ -71,7 +67,6 @@ function App() {
         <a target="_blank" href="https://icons8.com/icon/59878/поиск" rel="noreferrer"> Поиск</a> был взят из <a rel="noreferrer" target="_blank" href="https://icons8.com">Icons8</a>
       </footer>
     </div>
-
   );
 }
 
