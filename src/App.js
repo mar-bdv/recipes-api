@@ -28,9 +28,6 @@ function App() {
     setWordSubmitted(mySearch)
     e.preventDefault()
   }
-  // if(wordSubmitted !== myRecipes){
-  //   console.log("По вашему запросу ничего не найдено")
-  // }
 
   return (
     <div>
@@ -46,7 +43,7 @@ function App() {
       </div>
 
       <div className='recipes-div'>
-        {/* {wordSubmitted !== myRecipes ? console.log('ничего не найдено') : console.log('найдено!')} */}
+        {myRecipes.length > 1 ? 
         {myRecipes.map((element, index) =>(
             <Recipes key={index}
             label={element.recipe.label}
@@ -58,7 +55,8 @@ function App() {
             totalTime={element.recipe.totalTime}
             ingredientLines={element.recipe.ingredientLines}
           />
-        ))}
+        ))} : <p>Not found</p}
+        
       </div> 
       <hr/>
       <footer>
