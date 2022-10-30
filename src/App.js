@@ -2,6 +2,9 @@ import './App.css';
 import { useEffect, useState } from 'react';
 import Recipes from './Recipes';
 import icon from './icon-search.png'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+
 
 function App() {
   const MY_ID = "35bff195"
@@ -10,11 +13,19 @@ function App() {
   const [mySearch, setMySearch] = useState("");
   const [myRecipes, setMyRecipes] = useState([]);
   const [wordSubmitted, setWordSubmitted] = useState("pizza")
+  const MySwal = withReactContent(Swal)
 
   useEffect(() =>{
     const getRecipe = async () =>{
       const response = await fetch(`https://api.edamam.com/api/recipes/v2?type=public&q=${wordSubmitted}&app_id=${MY_ID}&app_key=${MY_KEY}`);
       const data = await response.json();
+      if(data.count === 0){
+        MySwal.fire({
+          title: <p className='p-ing'>Not found "{wordSubmitted}"</p>,
+          confirmButtonColor: "#00A19D"
+      })
+        setMySearch("")
+      }
       setMyRecipes(data.hits)
     }
     getRecipe()
@@ -28,6 +39,9 @@ function App() {
     setWordSubmitted(mySearch)
     e.preventDefault()
   }
+  // if(wordSubmitted !== myRecipes){
+  //   console.log("По вашему запросу ничего не найдено")
+  // }
 
   return (
     <div>
@@ -43,7 +57,7 @@ function App() {
       </div>
 
       <div className='recipes-div'>
-        {myRecipes.length > 1 ? 
+      
         {myRecipes.map((element, index) =>(
             <Recipes key={index}
             label={element.recipe.label}
@@ -55,8 +69,7 @@ function App() {
             totalTime={element.recipe.totalTime}
             ingredientLines={element.recipe.ingredientLines}
           />
-        ))} : <p>Not found</p}
-        
+        ))}
       </div> 
       <hr/>
       <footer>
