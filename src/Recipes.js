@@ -27,7 +27,7 @@ function Recipes({label, image, calories, totalNutrientsProtein, totalTime, ingr
                 <p className='p-text'> FAT <b> {totalNutrientsFat.toFixed()} g</b></p>
                 <p className='p-text'> Carbs <b> {totalNutrientsCarbs.toFixed()} g</b></p>
 
-                <button onClick={sweetAlert} className="view-btn">View ingredients</button>
+                <button onClick={sweetAlert} className="view-btn">View ingredients </button>
             </div>
     )
 }
